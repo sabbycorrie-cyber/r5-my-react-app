@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import API from "./Pages/API.jsx"
+import API from "./Pages/Home.jsx"
 
 function App() {
 
