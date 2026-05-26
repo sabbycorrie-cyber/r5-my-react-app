@@ -1,37 +1,46 @@
 import React, { useEffect, useState } from "react";
 
 function API() {
-    const [comic, setComic] = useState({});
+    const [joke, setJoke] = useState([]);
 
     const fetchData = async () => {
         try {
-            const response = await fetch("https://pnpninja-daily-comicstrips-v1.p.rapidapi.com/getComicLinks",
-            {
-            method: "GET",
-            header: {
-                "x-rapid-key": "ce722c04c2msh6b0349e3d597d34p10f229jsnae82c7deeab6",
-                "x-rapidapi-host": "https://pnpninja-daily-comicstrips-v1.p.rapidapi.com"
-            }
-        }
+            const response = await fetch( "https://official-joke-api.appspot.com/random_joke"
     );
     const data = await response.json();
-    console.log(data);
-    setComic(data);
-} catch (error) {
+    setJoke(data);
+} 
+catch (error) {
     console.log("Error fetching data:", error);
     }
 };
 
-    useEffect(() => {
-        fetchData();
-    }, []);
+const generateJoke = () => {
+    fetchData();
+}
 
     return (
-        <div>
-            <h1>API</h1>
-            <button onClick={fetchData}>Generate Comic</button>
-            <p>Setup: {comic?.strip}</p>
-            <p>Comic: {comic?.image || ""}</p>
+        <div className="app">
+
+            <div className="title-box">
+            <h1>Jokes for Dayz</h1>
+            </div>
+
+            <button onClick={generateJoke} className="joke-btn">
+            Hit Me With Another!
+            </button>
+
+            <div className="joke-card">
+
+            <p className="setup">
+            <span>The Setup:</span>{joke.setup}
+            </p>
+
+            <p className="punchline">
+            <span>The Punchline:</span>{joke.punchline}
+            </p>
+
+        </div>
         </div>
     );
 }
