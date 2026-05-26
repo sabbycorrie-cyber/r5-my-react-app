@@ -27,7 +27,20 @@ const generateJoke = () => {
             </div>
 
             <button onClick={generateJoke} className="joke-btn">
-            Hit Me With Another!
+            <span className="red">S</span>
+            <span className="orange">u</span>
+            <span className="yellow">r</span>
+            <span className="green">p</span>
+            <span className="blue">r</span>
+            <span className="indigo">i</span>
+            <span className="violet">s</span>
+            <span className="red">e</span>
+
+            {" "}
+
+            <span className="orange">M</span>
+            <span className="yellow">e</span>
+            <span className="green">!</span>
             </button>
 
             <div className="joke-card">
