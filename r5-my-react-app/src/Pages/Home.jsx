@@ -2,11 +2,7 @@ import React, { useEffect, useState } from "react";
 import API from "./API";
 
 function Home () {
-    return (
-        <div>
-            <API />
-        </div>
-    );
+    return <API />;
 }
 
 export default Home;
